@@ -5,9 +5,11 @@ import (
 	"image/color"
 	"image/gif"
 	"io"
+	"log"
 	"math"
 	"math/rand"
-	"os"
+	"net/http"
+	"strconv"
 )
 
 var greenColor = color.RGBA{0x00, 0xff, 0x00, 0xff}
@@ -19,21 +21,13 @@ const (
 )
 
 func main() {
-	outFile := "lissajous.gif"
-	// create file
-	f, err := os.Create(outFile)
-	if err != nil {
-		panic(err)
-	}
-	// write lissajous figure to file
-
-	lissajous(f)
-	defer f.Close()
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
 
-func lissajous(out io.Writer) {
+func lissajous(out io.Writer, cycle int) {
+	cycles := float64(cycle) // number of complete x oscillator revolutions
 	const (
-		cycles  = 5     // number of complete x oscillator revolutions
 		res     = 0.001 // angular resolution
 		size    = 100   // image canvas covers [-size..+size]
 		nframes = 64    // number of animation frames
@@ -56,4 +50,14 @@ func lissajous(out io.Writer) {
 		anim.Image = append(anim.Image, img)
 	}
 	gif.EncodeAll(out, &anim) // NOTE: ignoring encoding errors
+}
+
+func handler(response http.ResponseWriter, request *http.Request) {
+	urlQueryParams := request.URL.Query()
+	cycle := urlQueryParams.Get("cycle")
+	cycleInt, err := strconv.Atoi(cycle)
+	if err != nil {
+		cycleInt = 5
+	}
+	lissajous(response, cycleInt)
 }
