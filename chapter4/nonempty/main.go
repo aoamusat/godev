@@ -26,11 +26,6 @@ func NonEmpty(strings []string) []string {
 // from both ends moving towards the center until the middle is reached.
 // The slice is modified directly; no new slice is created.
 func reverse[T any](arg *[]T) {
-	// n := len(*arr)
-	// for i := 0; i < n/2; i++ {
-	// 	(*arr)[i], (*arr)[n-1-i] = (*arr)[n-1-i], (*arr)[i]
-	// }
-
 	for i, j := 0, len(*arg)-1; i < j; i, j = i+1, j-1 {
 		(*arg)[i], (*arg)[j] = (*arg)[j], (*arg)[i]
 	}
