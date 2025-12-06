@@ -1,17 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
-// Exercise 4.5: Write an in-place function to eliminate adjacent duplicates in a []string slice.
-
-func main() {
-	input := []string{"hello", "john", "world", "olayide", "john", "john", "john"}
-	fmt.Printf("input: %v\n", input)
-	fmt.Printf("Duplicates Removed: %v\n", IEliminateAdjacentDuplicates(input))
-}
-
 // eliminateAdjacentDuplicates removes consecutive duplicate strings from the input slice.
 // It takes a slice of strings and returns a new slice with adjacent duplicates eliminated.
 // The original slice is not modified.
