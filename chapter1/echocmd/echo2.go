@@ -1,7 +1,7 @@
 // gopl.io/ch1/echo2
 // Echo2 prints its command-line arguments.
 
-package main
+package echocmd
 
 import (
 	"fmt"

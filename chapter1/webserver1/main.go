@@ -1,5 +1,5 @@
 // Server1 is a minimal "echo" server.
-package main
+package webserver1
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package main
+package ex45
 
 // eliminateAdjacentDuplicates removes consecutive duplicate strings from the input slice.
 // It takes a slice of strings and returns a new slice with adjacent duplicates eliminated.

@@ -1,5 +1,5 @@
 // Package main implements a simple directed graph data structure using adjacency lists
-package main
+package graph
 
 // Graph represents a directed graph as an adjacency list using a map of maps
 // The outer map's keys are vertex names (strings)

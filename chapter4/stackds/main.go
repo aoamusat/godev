@@ -1,4 +1,4 @@
-package main
+package stackds
 
 type Stack[T any] struct {
 	elements []any

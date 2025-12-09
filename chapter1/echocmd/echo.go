@@ -1,6 +1,6 @@
 // Echo1 prints its command-line arguments.
 // gopl.io/ch1/echo1
-package main
+package echocmd
 
 import (
 	"os"

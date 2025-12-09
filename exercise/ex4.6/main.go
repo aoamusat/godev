@@ -1,4 +1,4 @@
-package main
+package ex46
 
 import "unicode"
 

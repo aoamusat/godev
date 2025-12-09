@@ -1,4 +1,4 @@
-package main
+package tempconv0
 
 type Celcius float64
 type Fahrenheit float64

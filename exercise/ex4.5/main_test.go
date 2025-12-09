@@ -1,4 +1,4 @@
-package main
+package ex45
 
 import (
 	"testing"
