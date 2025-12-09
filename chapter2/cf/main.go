@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"a4m.dev/godev/chapter2/cf/tempconv"
+	"a4m.dev/godev/chapter2/tempconv"
 )
 
 func main() {
