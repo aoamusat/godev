@@ -52,6 +52,9 @@ func lissajous(out io.Writer, cycle int) {
 	gif.EncodeAll(out, &anim) // NOTE: ignoring encoding errors
 }
 
+// handler reads the "cycle" query parameter from the request URL, parses it as an integer
+// (defaulting to 5 if the parameter is missing or invalid), and invokes lissajous to
+// generate and write the resulting GIF image to the provided http.ResponseWriter.
 func handler(response http.ResponseWriter, request *http.Request) {
 	urlQueryParams := request.URL.Query()
 	cycle := urlQueryParams.Get("cycle")
